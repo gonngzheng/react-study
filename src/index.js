@@ -1,19 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import qs from 'qs';
-import './static/less/index.less';
-console.log(qs.parse('name=gz&age=24&lx=stu'))
-
-// import './index.css';
-// import App from './App';
-// import * as serviceWorker from './serviceWorker';
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
-
-// serviceWorker.unregister();
+import Dialog from './component/Dialog';
+let root = document.getElementById('root')
+ReactDOM.render(<div>
+    {/* 注释：jsx中调取组件，只需要把组件当做一个标签调取使用即可（单闭合和双闭合都可以） */}
+    <Dialog con="哈哈哈"/>
+    <Dialog con="嘿嘿嘿" lx={2}>
+        {/* 属性值不是字符串，我们需要使用大括号包起来 */}
+    </Dialog>
+</div>,root)
