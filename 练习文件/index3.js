@@ -26,9 +26,8 @@ class Dialog extends React.Component{
          * 
          */
         // console.log(this.props)
-        
+     
     }
-
     componentWillMount(){
         //=>第一次渲染之前
         console.log(this.props)
