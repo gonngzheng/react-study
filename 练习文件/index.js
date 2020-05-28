@@ -43,7 +43,7 @@ render(<div><h1 id="titleBox" className="title" style={styleObj}>平凡的世界
     ...
     __proto__:Object.prototype
     
-    ReactDOM.render(JSX语法最后生成的对象，容器)，基于RENDER方法吧生成的对象动态创建为DOM圆度，插入到指定的容器中
+    ReactDOM.render(JSX语法最后生成的对象，容器)，基于RENDER方法吧生成的对象动态创建为DOM元素，插入到指定的容器中
 */
 console.log(React.createElement("h1", {
     id: "titleBox",
