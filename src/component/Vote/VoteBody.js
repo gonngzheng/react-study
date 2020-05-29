@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 export default class VoteBody extends React.Component{
     constructor(props,context){
-        super(props)
+        super(props,context)
         console.log(context)
     }
     static contextTypes={
@@ -16,12 +16,15 @@ export default class VoteBody extends React.Component{
     }
 
     render(){
+        let {n,m} = this.context,
+        rate = (n/(n+m))*100;
+        isNaN(rate) ?rate=0:console.log('')
         return <section className={'panel-body'}>
-            支持人数：<span>{this.context.n}</span>
+            支持人数：<span>{n}</span>
             <br/>
-            反对人数：<span>{this.context.m}</span>
+            反对人数：<span>{m}</span>
             <br/>
-            支持比率：<span>0.00%</span>
+            支持比率：<span>{rate.toFixed(2)+'%'}</span>
         </section>
     }
 }
