@@ -46,13 +46,14 @@ export default class Vote extends React.Component{
         this.state={n,m}
     }
     render(){
+        let {store} =this.props
         console.log(2)
         let {title}=this.props;
 
         return <section className='panel panel-default'>
-            <VoteHead title={title}/>
-            <VoteBody />
-            <VoteFooter/>
+            <VoteHead title={this.props.title}/>
+            <VoteBody store={store}/>
+            <VoteFooter store={store}/>
         </section>
     }
 }

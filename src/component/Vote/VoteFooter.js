@@ -11,13 +11,29 @@ export default class VoteFooter extends React.Component{
     }
     render(){
         let {callBack} = this.context;
+        // return <div className='panel-footer'>
+        //     <button className={'btn btn-success'} onClick={()=>{
+        //         callBack('support')
+        //     }}>支持</button>
+        //     &nbsp;&nbsp;
+        //     <button className={'btn btn-danger'} onClick={()=>{
+        //         callBack('against')
+        //     }}>反对</button>
+        // </div>
+
+        let {store:{dispatch}}=this.props;
+
         return <div className='panel-footer'>
             <button className={'btn btn-success'} onClick={()=>{
-                callBack('support')
+                dispatch({
+                    type:'VOTE_SUPPORT'
+                })
             }}>支持</button>
             &nbsp;&nbsp;
             <button className={'btn btn-danger'} onClick={()=>{
-                callBack('against')
+                dispatch({
+                    type:'VOTE_AGAINST'
+                })
             }}>反对</button>
         </div>
     }

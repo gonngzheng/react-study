@@ -5,6 +5,10 @@ export default class VoteBody extends React.Component{
     constructor(props,context){
         super(props,context)
         console.log(context)
+        // init state
+        let {store:{getState}} =this.props;
+        let {n,m}=getState();
+        this.state={n,m}
     }
     static contextTypes={
         /**
@@ -15,9 +19,24 @@ export default class VoteBody extends React.Component{
         m:PropTypes.number,
     }
 
+    componentDidMount(){
+        let {store:{getState,subscribe}}=this.props;
+       let unsubscribe= subscribe(()=>{
+           let {n,m}=getState();
+           this.setState({
+               n,m
+           })
+        })
+        //unsubscribe();把当前追加的方法移除，解除绑定的方式
+    }
     render(){
-        let {n,m} = this.context,
-        rate = (n/(n+m))*100;
+        // let {n,m} = this.context,
+        // rate = (n/(n+m))*100;
+        // isNaN(rate) ?rate=0:console.log('')
+        
+        //reducer
+        let {n=0,m=0}=this.state,
+            rate = (n/(n+m))*100;
         isNaN(rate) ?rate=0:console.log('')
         return <section className={'panel-body'}>
             支持人数：<span>{n}</span>
